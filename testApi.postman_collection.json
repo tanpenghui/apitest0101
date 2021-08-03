@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "1da40d61-eb33-4947-900c-3f6d8f25cec7",
+		"name": "testApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login001",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"test001 code\",function(){\r",
+							"    var jsonDate=pm.response.json();\r",
+							"    pm.expect(jsonDate.status).to.equals(0);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "username=13800138006&password=123456&verify_code=1111",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}/{{address}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"{{address}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test002",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"test001 code\",function(){\r",
+							"    var jsonDate=pm.response.json();\r",
+							"    pm.expect(jsonDate.status).to.equals(200);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username=&password=123456&verify_code=1111",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{ip}}/{{address}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"{{address}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
